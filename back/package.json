@@ -1,0 +1,24 @@
+{
+  "name": "back",
+  "version": "0.0.0",
+  "description" : "API documentación",
+  "private": true,
+  "scripts": {
+    "start": "DEBUG=back:* nodemon ./bin/www",
+    "docs" : "apidoc -i ./routes -o public/apidoc/ "
+  },
+  "dependencies": {
+    "apidoc": "^0.17.6",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "hbs": "~4.0.1",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "nodemon": "^1.18.4"
+  },
+  "apidoc" : {
+    "title": "rutas para consultar la api.",
+    "url" : "http://localhost:8000"
+  }
+}

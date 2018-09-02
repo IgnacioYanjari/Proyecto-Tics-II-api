@@ -1,0 +1,1 @@
+define({  "title": "rutas para consultar la api.",  "url": "http://localhost:8000",  "name": "back",  "version": "0.0.0",  "description": "API documentación",  "sampleUrl": false,  "defaultVersion": "0.0.0",  "apidoc": "0.3.0",  "generator": {    "name": "apidoc",    "time": "2018-09-02T04:25:15.631Z",    "url": "http://apidocjs.com",    "version": "0.17.6"  }});
