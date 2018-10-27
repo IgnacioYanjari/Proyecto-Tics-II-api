@@ -30,6 +30,7 @@ Desarrollo de proyecto del ramo Tics II
 1. Clonar git
 2. Ejecutar ``` npm install ``` en el interior de la carpeta back
 3. Instalar ```postgreSql``` si no está instalado.
+4. Levantar servidor via ```npm start```
 
 ### Links
 
@@ -37,7 +38,7 @@ Desarrollo de proyecto del ramo Tics II
 
 - [Usar postgreSql con Express y NodeJs](https://scotch.io/tutorials/getting-started-with-node-express-and-postgres-using-sequelize)
 
--[Usaremos sequelize-cli para migraciones y seeders](http://docs.sequelizejs.com/manual/tutorial/migrations.html#configuration)
+- [Usaremos sequelize-cli para migraciones y seeders](http://docs.sequelizejs.com/manual/tutorial/migrations.html#configuration)
 
 ### Comandos utiles
 
