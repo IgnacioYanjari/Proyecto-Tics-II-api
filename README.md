@@ -29,8 +29,16 @@ Desarrollo de proyecto del ramo Tics II
 
 1. Clonar git
 2. Ejecutar ``` npm install ``` en el interior de la carpeta back
-3. Instalar ```postgreSql``` si no está instalado.
-4. Levantar servidor via ```npm start```
+3. Instalar ``` postgreSql ``` si no está instalado.
+4. Crear una base de datos llamada ``` tics2 ```.
+4. Crear un usuario en postgresql llamado ``` tics2 ``` con la contraseña ``` tics2 ```
+5. Asignarle permisos a la base de datos ``` tics2 ```( del paso 4 ).
+6. Correr las migraciones via ``` sequelize db:migrate ```.
+7. Correr los seeders via ``` sequelize db:seed:all ```,
+8. Levantar servidor via ```npm start ```,
+9. Levantar servidor frontend del [repo](https://github.com/IgnacioYanjari/Proyecto-Tics-II-front)
+
+
 
 ### Links
 

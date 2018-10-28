@@ -5,14 +5,16 @@
     "database": "tics2",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "port": 5432
+    "port": 5432,
+    "operatorsAliases": false
   },
   "test": {
     "username": "tics2",
     "password": "tics2",
     "database": "tics2",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "port": 5432
+    "dialect": "postgres",
+    "port": 5432,
+    "operatorsAliases": false
   }
 }

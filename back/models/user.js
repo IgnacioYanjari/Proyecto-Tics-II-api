@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const user = sequelize.define('user', {
+  const User = sequelize.define('User', {
     rut : DataTypes.STRING,
     password: DataTypes.STRING,
     first_name: DataTypes.STRING,
@@ -10,8 +10,16 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: true,
     paranoid : true
   });
-  user.associate = function(models) {
-    // associations can be defined here
+  User.associate = function(models) {
+    // Un usuario tiene muchos roles
+    User.belongsToMany(models.role, {
+      through: {
+        model: models.profile,
+        unique: false,
+      },
+      foreignKey: 'user_id',
+      constraints: false
+    });
   };
-  return user;
+  return User;
 };
