@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'profile_tenders'
   });
   ProfileTender.associate = function(models) {
     // Pertenece a un perfil

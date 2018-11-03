@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'material_types'
   });
   MaterialType.associate = function(models) {
     // Un tipo de material tiene muchos materiales asociados.

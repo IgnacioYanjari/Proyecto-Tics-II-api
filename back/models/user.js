@@ -8,18 +8,21 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'users'
   });
   User.associate = function(models) {
     // Un usuario tiene muchos roles
-    User.belongsToMany(models.role, {
+    User.belongsToMany(models.Role, {
       through: {
-        model: models.profile,
+        model: models.Profile,
         unique: false,
       },
       foreignKey: 'user_id',
       constraints: false
     });
+
+    User.hasMany(models.Profile, { foreignKey : 'user_id', as : 'Profiles'});
   };
   return User;
 };

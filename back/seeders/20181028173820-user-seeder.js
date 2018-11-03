@@ -18,7 +18,7 @@ module.exports = {
       id: 2,
       first_name: 'Jorge',
       last_name : 'Huerta',
-      rut : '212098327',
+      rut : '178121936',
       password : bcrypt.hashSync('12345',8),
       created_at : new Date(),
       updated_at : new Date()

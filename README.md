@@ -34,8 +34,8 @@ Desarrollo de proyecto del ramo Tics II
 4. Crear un usuario en postgresql llamado ``` tics2 ``` con la contraseña ``` tics2 ```
 5. Asignarle permisos a la base de datos ``` tics2 ```( del paso 4 ).
 6. Correr las migraciones via ``` sequelize db:migrate ```.
-7. Correr los seeders via ``` sequelize db:seed:all ```,
-8. Levantar servidor via ```npm start ```,
+7. Correr los seeders via ``` sequelize db:seed:all ```.
+8. Levantar servidor via ```npm start ```.
 9. Levantar servidor frontend del [repo](https://github.com/IgnacioYanjari/Proyecto-Tics-II-front)
 
 

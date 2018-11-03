@@ -6,9 +6,8 @@ let logger = require('morgan');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
-let loginRouter = require('./routes/login');
+let authRouter = require('./routes/auth');
 let app = express();
-
 //Headers
 var responseHeader = require('./system/responseHeader.js')
 
@@ -26,8 +25,7 @@ app.use(responseHeader);
 // Rutas para la api.
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/login', loginRouter);
-
+app.use('/auth', authRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   res.status(404).send({

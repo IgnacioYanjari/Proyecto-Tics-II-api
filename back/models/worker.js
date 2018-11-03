@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'workers'
   });
   Worker.associate = function(models) {
     // Tiene muchos mano de obra

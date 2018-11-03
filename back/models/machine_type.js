@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'machine_types'
   });
   MachineType.associate = function(models) {
     // Un tipo de maquina tiene muchas maquinas asociadas.

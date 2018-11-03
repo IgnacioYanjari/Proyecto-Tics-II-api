@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'supplies'
   });
   Supply.associate = function(models) {
     // Un insumo pertenece a un tipo de insumo.

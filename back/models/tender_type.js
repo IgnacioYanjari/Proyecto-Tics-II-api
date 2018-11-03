@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'tender_types'
   });
   TenderType.associate = function(models) {
     // Un tipo de licitación tiene muchas licitaciones(n:m).

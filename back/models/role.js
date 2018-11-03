@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'roles'
   });
   Role.associate = function(models) {
     // Tiene muchos usuarios
@@ -18,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       constraints: false
     });
 
+    Role.hasMany(models.Profile);
   };
   return Role;
 };

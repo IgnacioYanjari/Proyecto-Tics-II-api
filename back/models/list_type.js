@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'list_types'
   });
   ListType.associate = function(models) {
     // Tiene una licitacion

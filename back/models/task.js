@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'tasks'
   });
   Task.associate = function(models) {
     // Una tarea pertenece a una obra

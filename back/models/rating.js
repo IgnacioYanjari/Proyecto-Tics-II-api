@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'ratings'
   });
   Rating.associate = function(models) {
     // Pertenece a una obra

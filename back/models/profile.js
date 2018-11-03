@@ -6,14 +6,15 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'profiles'
   });
   Profile.associate = function(models) {
     // Pertenece a un usuario
-    Profile.belongsTo(models.User);
+    Profile.belongsTo(models.User, { foreignKey:'user_id', as : 'Users'});
 
     // Pertenece a un role
-    Profile.belongsTo(models.Role);
+    Profile.belongsTo(models.Role, { foreignKey:'role_id', as : 'Roles'});
 
     // Puede ver muchas licitaciones.
     Profile.belongsToMany(models.Tender, {

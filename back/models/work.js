@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'works'
   });
   Work.associate = function(models) {
     // Una obra es de un tipo de obra.
@@ -18,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     Work.belongsTo(models.Tender);
 
     // Una obra tiene muchas tareas.
-    Work.hasMany(models.Taks);
+    Work.hasMany(models.Task);
 
     // Calificaciones quedan fuera del alcance.
     Work.belongsToMany(models.Worker, {

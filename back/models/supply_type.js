@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'supply_types'
   });
   SupplyType.associate = function(models) {
     // Un tipo de insumo tiene muchos insumos.

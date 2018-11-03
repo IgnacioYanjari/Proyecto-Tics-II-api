@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'work_machines'
   });
   WorkMachine.associate = function(models) {
     // Pertenece a un trabajador

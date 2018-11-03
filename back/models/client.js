@@ -6,11 +6,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'clients'
   });
   Client.associate = function(models) {
     // Un Cliente tiene un solo tipo de Cliente.
-    Client.belongsTo(models.Client_type);
+    Client.belongsTo(models.ClientType);
 
     // Un Cliente tiene muchas licitaciones
     Client.hasMany(models.Tender);

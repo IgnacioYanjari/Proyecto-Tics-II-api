@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     underscored: true,
     timestamps: true,
-    paranoid : true
+    paranoid : true,
+    tableName: 'workforces'
   });
   Workforce.associate = function(models) {
     // Pertenece a un tipo de mano de obra
