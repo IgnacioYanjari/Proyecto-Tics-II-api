@@ -11,19 +11,19 @@ module.exports = (sequelize, DataTypes) => {
   });
   Task.associate = function(models) {
     // Una tarea pertenece a una obra
-    Task.belongsTo(models.Work);
+    // Task.belongsTo(models.Work);
 
     // Una tarea tiene muchos materiales
-    Task.hasMany(models.Material);
+    // Task.hasMany(models.Material);
 
     // Una tarea tiene muchos insumos
-    Task.hasMany(models.Supply);
+    // Task.hasMany(models.Supply);
 
     // Una tarea tiene muchos equipos
-    Task.hasMany(models.Machine);
+    // Task.hasMany(models.Machine);
 
     // Una tarea tiene mucha mano de obra
-    Task.hasMany(models.Workforce);
+    // Task.hasMany(models.Workforce);
   };
   return Task;
 };

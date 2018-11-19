@@ -27,8 +27,8 @@ function LoginFunction( req, res, next){
         userData.roles.push(role.id);
       })
       // Verificar contraseña
-      if (bcrypt.compareSync(password,user.password)){
-        let token = jwt.sign(userData,'secret_key',{expiresIn:'12h'});
+      if (bcrypt.compareSync(password, user.password)){
+        let token = jwt.sign(userData, 'secret_key', {expiresIn:'12h'});
         return res.send({
           'status' : 'success',
           'token' : token

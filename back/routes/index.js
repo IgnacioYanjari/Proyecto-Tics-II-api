@@ -1,5 +1,15 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let usersRouter = require('./users');
+let authRouter = require('./auth');
+let typesRouter = require('./types.js');
+let productsRouter = require('./products');
+let router = express.Router();
+let parseToken = require('./middlewares/token');
+
+router.use('/products', parseToken, productsRouter);
+router.use('/users', usersRouter);
+router.use('/auth', authRouter);
+router.use('/types', parseToken, typesRouter);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

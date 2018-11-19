@@ -12,9 +12,17 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      quantity: {
-        allowNull: true,
-        type: Sequelize.FLOAT
+      brand: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      price: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
+      type_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER
       },
       created_at: {
         allowNull: false,

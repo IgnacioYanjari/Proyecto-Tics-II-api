@@ -12,10 +12,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      quantity: {
-        allowNull: true,
-        type: Sequelize.FLOAT
-      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

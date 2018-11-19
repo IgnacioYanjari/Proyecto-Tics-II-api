@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true,
     timestamps: true,
     paranoid : true,
-    tableName: 'client_type'
+    tableName: 'client_types'
   });
   ClientType.associate = function(models) {
     // Tiene muchos clientes.

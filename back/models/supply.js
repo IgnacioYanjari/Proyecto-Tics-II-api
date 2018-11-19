@@ -2,7 +2,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Supply = sequelize.define('Supply', {
     name: DataTypes.STRING,
-    quantity: DataTypes.FLOAT
+    brand: DataTypes.STRING,
+    price: DataTypes.INTEGER,
   }, {
     underscored: true,
     timestamps: true,
@@ -11,10 +12,10 @@ module.exports = (sequelize, DataTypes) => {
   });
   Supply.associate = function(models) {
     // Un insumo pertenece a un tipo de insumo.
-    Supply.belongsTo(models.SupplyType);
+    Supply.belongsTo(models.SupplyType, {foreignKey: 'type_id', as: 'type'});
 
     // Un insumo pertenece a una tarea.
-    Supply.belongsTo(models.Task);
+    // Supply.belongsTo(models.Task);
   };
   return Supply;
 };

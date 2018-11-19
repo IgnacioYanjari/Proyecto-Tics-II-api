@@ -2,8 +2,6 @@
 module.exports = (sequelize, DataTypes) => {
   const SupplyType = sequelize.define('SupplyType', {
     name: DataTypes.STRING,
-    real_price: DataTypes.FLOAT,
-    industry_price: DataTypes.FLOAT
   }, {
     underscored: true,
     timestamps: true,
@@ -12,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   SupplyType.associate = function(models) {
     // Un tipo de insumo tiene muchos insumos.
-    SupplyType.hasMany(models.Supply);
+    SupplyType.hasMany(models.Supply, {foreignKey: 'type_id'});
   };
   return SupplyType;
 };

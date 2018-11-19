@@ -12,14 +12,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      real_price: {
-        allowNull: false,
-        type: Sequelize.FLOAT
-      },
-      industry_price: {
-        allowNull: false,
-        type: Sequelize.FLOAT
-      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

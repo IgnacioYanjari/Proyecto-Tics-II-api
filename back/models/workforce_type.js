@@ -1,7 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const WorkforceType = sequelize.define('WorkforceType', {
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    salary: DataTypes.INTEGER,
   }, {
     underscored: true,
     timestamps: true,
