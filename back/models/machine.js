@@ -13,7 +13,9 @@ module.exports = (sequelize, DataTypes) => {
   });
   Machine.associate = function(models) {
     // Una maquina pertenece a un tipo de maquina.
-    Machine.belongsTo(models.MachineType, {foreignKey: 'type_id', as: 'type' });
+    Machine.belongsTo(models.MachineType, {
+      foreignKey: 'type_id', as: 'type'
+    });
 
     // Una maquina o equipo pertenece a una tarea
     // Machine.belongsTo(models.Task);

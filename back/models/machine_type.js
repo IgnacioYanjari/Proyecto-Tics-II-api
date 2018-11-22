@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
   });
   MachineType.associate = function(models) {
     // Un tipo de maquina tiene muchas maquinas asociadas.
-    MachineType.hasMany(models.Machine, { foreignKey: 'type_id'});
+    MachineType.hasMany(models.Machine, {
+      foreignKey: 'type_id'
+    });
 
     // Un tipo de maquina puede ser usada por muchos trabajadores.
     MachineType.belongsToMany(models.Worker, {

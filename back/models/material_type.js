@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
   });
   MaterialType.associate = function(models) {
     // Un tipo de material tiene muchos materiales asociados.
-    MaterialType.hasMany(models.Material, {foreignKey: 'type_id'});
+    MaterialType.hasMany(models.Material, {
+      foreignKey: 'type_id'
+    });
   };
   return MaterialType;
 };

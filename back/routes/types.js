@@ -5,7 +5,7 @@ let { MaterialType, MachineType, SupplyType,
       ClientType} = require('../models');
 
 function getAll(model, res) {
-  return model.find({
+  return model.findAll({
     attributes: {
       exclude: ['updated_at', 'deleted_at']
     }

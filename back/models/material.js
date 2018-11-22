@@ -12,7 +12,9 @@ module.exports = (sequelize, DataTypes) => {
   });
   Material.associate = function(models) {
     // Un Material pertenece a un tipo de Material.
-    Material.belongsTo(models.MaterialType, {foreignKey: 'type_id', as: 'type'});
+    Material.belongsTo(models.MaterialType, {
+      foreignKey: 'type_id', as: 'type'
+    });
 
     // Un Material pertenece a una tarea especifica.
     // Material.belongsTo(models.Task);

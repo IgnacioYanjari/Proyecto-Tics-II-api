@@ -14,7 +14,7 @@ function cleanData(data) {
     return data;
 }
 
-function update(model, data, res) {
+async function update(model, data, res) {
   console.log(JSON.stringify(data, null, 3));
   if (!data.id) {
     return res.send({
@@ -55,12 +55,14 @@ router.put('/machines/:id', (req, res, next) => {
   let data = {name, price, id};
   return update(Machine, data, res);
 });
+
 router.put('/materials/:id', (req, res, next) => {
   let {name, price} = req.body;
   let {id} = req.params;
   let data = {name, price, id};
   return update(Material, data, res);
 });
+
 router.put('/supplies/:id', (req, res, next) => {
   let {name, price} = req.body;
   let {id} = req.params;

@@ -28,7 +28,8 @@ module.exports = {
       },
       type_id: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        unique: false,
       },
       created_at: {
         allowNull: false,
