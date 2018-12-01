@@ -1,16 +1,20 @@
-'use strict';
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const Worker = sequelize.define('Worker', {
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
-    rut: DataTypes.STRING,
-    phone: DataTypes.STRING
-  }, {
-    underscored: true,
-    timestamps: true,
-    paranoid : true,
-    tableName: 'workers'
-  });
+  const Worker = sequelize.define(
+    "Worker",
+    {
+      first_name: DataTypes.STRING,
+      last_name: DataTypes.STRING,
+      rut: DataTypes.STRING,
+      phone: DataTypes.STRING
+    },
+    {
+      underscored: true,
+      timestamps: true,
+      paranoid: true,
+      tableName: "workers"
+    }
+  );
   Worker.associate = function(models) {
     // Tiene muchos mano de obra
     Worker.hasMany(models.Workforce);
@@ -19,9 +23,9 @@ module.exports = (sequelize, DataTypes) => {
     Worker.belongsToMany(models.Work, {
       through: {
         model: models.Rating,
-        unique: false,
+        unique: false
       },
-      foreignKey: 'worker_id',
+      foreignKey: "worker_id",
       constraints: false
     });
 
@@ -29,9 +33,9 @@ module.exports = (sequelize, DataTypes) => {
     Worker.belongsToMany(models.Machine, {
       through: {
         model: models.WorkMachine,
-        unique: false,
+        unique: false
       },
-      foreignKey: 'worker_id',
+      foreignKey: "worker_id",
       constraints: false
     });
 
@@ -39,12 +43,11 @@ module.exports = (sequelize, DataTypes) => {
     Worker.belongsToMany(models.MachineType, {
       through: {
         model: models.WorkerUse,
-        unique: false,
+        unique: false
       },
-      foreignKey: 'worker_id',
+      foreignKey: "worker_id",
       constraints: false
     });
-
   };
   return Worker;
 };

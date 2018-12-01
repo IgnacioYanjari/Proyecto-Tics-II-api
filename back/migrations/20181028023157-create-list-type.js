@@ -1,19 +1,19 @@
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('list_types', {
+    return queryInterface.createTable("list_types", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      tender_id:{
-        allowNull:false,
+      tender_id: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
-      type_id:{
-        allowNull:false,
+      type_id: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       created_at: {
@@ -24,7 +24,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      deleted_at : {
+      deleted_at: {
         allowNull: true,
         type: Sequelize.DATE,
         defaultValue: null
@@ -32,6 +32,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('list_types');
+    return queryInterface.dropTable("list_types");
   }
 };

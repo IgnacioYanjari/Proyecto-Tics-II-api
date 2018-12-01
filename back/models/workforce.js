@@ -1,13 +1,17 @@
-'use strict';
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const Workforce = sequelize.define('Workforce', {
-    payment: DataTypes.STRING
-  }, {
-    underscored: true,
-    timestamps: true,
-    paranoid : true,
-    tableName: 'workforces'
-  });
+  const Workforce = sequelize.define(
+    "Workforce",
+    {
+      payment: DataTypes.STRING
+    },
+    {
+      underscored: true,
+      timestamps: true,
+      paranoid: true,
+      tableName: "workforces"
+    }
+  );
   Workforce.associate = function(models) {
     // Pertenece a un tipo de mano de obra
     Workforce.belongsTo(models.WorkforceType);
@@ -17,7 +21,6 @@ module.exports = (sequelize, DataTypes) => {
 
     // Pertenece a un trabajador
     Workforce.belongsTo(models.Worker);
-
   };
   return Workforce;
 };

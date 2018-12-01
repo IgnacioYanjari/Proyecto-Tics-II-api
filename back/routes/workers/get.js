@@ -1,12 +1,11 @@
 let express = require("express");
 let router = express.Router();
-let {Machine, Material, Supply} = require("../../models");
+let {Worker} = require("../../models");
 const camelcaseKeys = require("camelcase-keys");
 
 function get(model, res) {
   return model
     .findAll({
-      include: ["type"],
       attributes: {
         exclude: ["updated_at", "deleted_at"]
       }
@@ -14,7 +13,6 @@ function get(model, res) {
     .then(data => {
       let response = [];
       data.map(value => {
-        value.dataValues.type = value.dataValues.type.name;
         response.push(camelcaseKeys(value.get()));
       });
       return res.send({
@@ -26,19 +24,13 @@ function get(model, res) {
       console.log(err);
       res.status(500).send({
         status: "fail",
-        messages: ["Error servidor"]
+        messages: err.errors[0].message
       });
     });
 }
 
-router.get("/machines", (req, res, next) => {
-  return get(Machine, res);
-});
-router.get("/materials", (req, res, next) => {
-  return get(Material, res);
-});
-router.get("/supplies", (req, res, next) => {
-  return get(Supply, res);
+router.get("", (req, res, next) => {
+  return get(Worker, res);
 });
 
 module.exports = router;

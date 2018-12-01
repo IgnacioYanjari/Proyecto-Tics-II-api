@@ -1,6 +1,14 @@
 let express = require("express");
 let router = express.Router();
-let {Machine, Material, Supply} = require("../../models");
+let {
+  MachineType,
+  MaterialType,
+  SupplyType,
+  ClientType,
+  TenderType,
+  WorkType,
+  WorkforceType
+} = require("../../models");
 const camelcaseKeys = require("camelcase-keys");
 
 function cleanData(data) {
@@ -53,24 +61,52 @@ async function update(model, data, res) {
 }
 
 router.put("/machines/:id", (req, res, next) => {
-  let {name, price} = req.body;
+  let {name} = req.body;
   let {id} = req.params;
-  let data = {name, price, id};
-  return update(Machine, data, res);
+  let data = {name, id};
+  return update(MachineType, data, res);
 });
 
 router.put("/materials/:id", (req, res, next) => {
-  let {name, price} = req.body;
+  let {name} = req.body;
   let {id} = req.params;
-  let data = {name, price, id};
-  return update(Material, data, res);
+  let data = {name, id};
+  return update(MaterialType, data, res);
 });
 
 router.put("/supplies/:id", (req, res, next) => {
   let {name, price} = req.body;
   let {id} = req.params;
-  let data = {name, price, id};
-  return update(Supply, data, res);
+  let data = {name, id};
+  return update(SupplyType, data, res);
+});
+
+router.put("/workForces/:id", (req, res, next) => {
+  let {name, salary} = req.body;
+  let {id} = req.params;
+  let data = {name, salary, id};
+  return update(WorkforceType, data, res);
+});
+
+router.put("/works/:id", (req, res, next) => {
+  let {name} = req.body;
+  let {id} = req.params;
+  let data = {name, id};
+  return update(WorkType, data, res);
+});
+
+router.put("/tenders/:id", (req, res, next) => {
+  let {name} = req.body;
+  let {id} = req.params;
+  let data = {name, id};
+  return update(TenderType, data, res);
+});
+
+router.put("/clients/:id", (req, res, next) => {
+  let {name} = req.body;
+  let {id} = req.params;
+  let data = {name, id};
+  return update(ClientType, data, res);
 });
 
 module.exports = router;

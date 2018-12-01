@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('machines', {
+    return queryInterface.createTable("machines", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -21,7 +21,7 @@ module.exports = {
         type: Sequelize.FLOAT,
         defaultValue: null
       },
-      weight_type : {
+      weight_type: {
         allowNull: true,
         type: Sequelize.STRING,
         defaultValue: null
@@ -29,7 +29,7 @@ module.exports = {
       type_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        unique: false,
+        unique: false
       },
       created_at: {
         allowNull: false,
@@ -39,7 +39,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      deleted_at : {
+      deleted_at: {
         allowNull: true,
         type: Sequelize.DATE,
         defaultValue: null
@@ -47,6 +47,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('machines');
+    return queryInterface.dropTable("machines");
   }
 };

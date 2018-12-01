@@ -1,16 +1,20 @@
-'use strict';
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const Work = sequelize.define('Work', {
-    name: DataTypes.STRING,
-    budget: DataTypes.FLOAT,
-    general_cost: DataTypes.FLOAT,
-    utility: DataTypes.FLOAT
-  }, {
-    underscored: true,
-    timestamps: true,
-    paranoid : true,
-    tableName: 'works'
-  });
+  const Work = sequelize.define(
+    "Work",
+    {
+      name: DataTypes.STRING,
+      budget: DataTypes.FLOAT,
+      general_cost: DataTypes.FLOAT,
+      utility: DataTypes.FLOAT
+    },
+    {
+      underscored: true,
+      timestamps: true,
+      paranoid: true,
+      tableName: "works"
+    }
+  );
   Work.associate = function(models) {
     // Una obra es de un tipo de obra.
     Work.belongsTo(models.WorkType);
@@ -25,9 +29,9 @@ module.exports = (sequelize, DataTypes) => {
     Work.belongsToMany(models.Worker, {
       through: {
         model: models.Rating,
-        unique: false,
+        unique: false
       },
-      foreignKey: 'work_id',
+      foreignKey: "work_id",
       constraints: false
     });
   };

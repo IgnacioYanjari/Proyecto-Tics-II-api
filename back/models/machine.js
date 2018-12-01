@@ -1,20 +1,25 @@
-'use strict';
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const Machine = sequelize.define('Machine', {
-    name: DataTypes.STRING,
-    price: DataTypes.FLOAT,
-    weight: DataTypes.FLOAT,
-    weight_type: DataTypes.STRING,
-  }, {
-    underscored: true,
-    timestamps: true,
-    paranoid : true,
-    tableName: 'machines'
-  });
+  const Machine = sequelize.define(
+    "Machine",
+    {
+      name: DataTypes.STRING,
+      price: DataTypes.FLOAT,
+      weight: DataTypes.FLOAT,
+      weight_type: DataTypes.STRING
+    },
+    {
+      underscored: true,
+      timestamps: true,
+      paranoid: true,
+      tableName: "machines"
+    }
+  );
   Machine.associate = function(models) {
     // Una maquina pertenece a un tipo de maquina.
     Machine.belongsTo(models.MachineType, {
-      foreignKey: 'type_id', as: 'type'
+      foreignKey: "type_id",
+      as: "type"
     });
 
     // Una maquina o equipo pertenece a una tarea
