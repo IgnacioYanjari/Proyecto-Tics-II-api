@@ -53,6 +53,16 @@ function formatPhone(phone) {
 }
 
 async function create(model, data, res) {
+  let worker = await Worker.findOne({
+    where: {rut: data.rut}
+  });
+  if (worker) {
+    console.log(worker);
+    return res.status(401).send({
+      status: "fail",
+      message: "Ya existe un usuario rut entregado"
+    });
+  }
   return model
     .create(data)
     .then(result => {
@@ -62,7 +72,7 @@ async function create(model, data, res) {
       });
     })
     .catch(err => {
-      res.status(500).send({
+      res.status(401).send({
         status: "fail",
         message: err.errors[0].message
       });

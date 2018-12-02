@@ -68,7 +68,7 @@ async function update(model, data, res) {
     }
   });
   if (worker.id != data.id)
-    res.status(404).send({
+    res.status(401).send({
       status: "fail",
       message: "Rut ya existente"
     });
@@ -87,7 +87,7 @@ async function update(model, data, res) {
         })
         .catch(err => {
           console.log(err);
-          res.status(500).send({
+          res.status(401).send({
             status: "fail",
             message: err.errors[0].message
           });

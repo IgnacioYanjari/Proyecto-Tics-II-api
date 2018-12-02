@@ -529,20 +529,34 @@ module.exports = {
       validate: true
     });
 
-    const users = await queryInterface.sequelize.query(`SELECT id from users;`);
+    let users = await queryInterface.sequelize.query(`SELECT id from users;`);
+    let roles = await queryInterface.sequelize.query(`SELECT id from roles;`);
 
-    let usersIds = users[0],
-      dataProfiles = [];
+    let dataProfiles = [];
+    users = users[0];
+    roles = roles[0];
 
     // Perfiles administrador para todos los usuarios
-    usersIds.forEach(async user => {
-      let aux = {
-        user_id: user.id,
-        role_id: 1,
-        created_at: new Date(),
-        updated_at: new Date()
-      };
-      dataProfiles.push(aux);
+    users.forEach(async user => {
+      if (user.id === 1) {
+        await roles.forEach(async role => {
+          let aux = {
+            user_id: user.id,
+            role_id: role.id,
+            created_at: new Date(),
+            updated_at: new Date()
+          };
+          dataProfiles.push(aux);
+        });
+      } else {
+        let aux = {
+          user_id: user.id,
+          role_id: 1,
+          created_at: new Date(),
+          updated_at: new Date()
+        };
+        dataProfiles.push(aux);
+      }
     });
 
     return queryInterface.bulkInsert("profiles", dataProfiles, {
