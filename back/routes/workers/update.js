@@ -107,7 +107,7 @@ router.put("/:id", async (req, res, next) => {
   let {id} = req.params;
   let data = {first_name, last_name, rut, phone, id};
   data = cleanData(data);
-  if (data.rut) data.rut = formatPhone(data.rut);
+  if (data.rut) data.rut = formatRut(data.rut);
   if (data.phone) data.phone = formatPhone(data.phone);
   let verify = await verifyValues(data);
   if (verify.status === "fail") {
