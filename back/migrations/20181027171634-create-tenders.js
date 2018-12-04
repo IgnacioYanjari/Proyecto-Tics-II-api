@@ -17,12 +17,17 @@ module.exports = {
         type: Sequelize.FLOAT
       },
       date_ini: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.DATE
+      },
+      client_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER
       },
       date_fin: {
         allowNull: true,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: null
       },
       created_at: {
         allowNull: false,

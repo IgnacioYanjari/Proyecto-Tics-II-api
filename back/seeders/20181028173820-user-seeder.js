@@ -23,6 +23,14 @@ module.exports = {
           password: bcrypt.hashSync("12345", 8),
           created_at: new Date(),
           updated_at: new Date()
+        },
+        {
+          first_name: "Fabian",
+          last_name: "Miranda",
+          rut: "18210843k",
+          password: bcrypt.hashSync("12345", 8),
+          created_at: new Date(),
+          updated_at: new Date()
         }
       ],
       {returning: true, validate: true}
@@ -558,13 +566,83 @@ module.exports = {
         dataProfiles.push(aux);
       }
     });
+    dataInsert = [];
+    let clients = [
+      {
+        name: "Sergenco",
+        phone: "283271637"
+      }
+    ];
+    await clients.forEach(data => {
+      dataInsert.push(
+        Object.assign({}, data, {
+          type_id: 2,
+          created_at: new Date(),
+          updated_at: new Date()
+        })
+      );
+    });
+    await queryInterface.bulkInsert("clients", dataInsert);
+
+    dataInsert = [];
+    let tenders = [
+      {
+        name: "Galpon Valparaiso",
+        budget: 40000000,
+        date_ini: new Date()
+      }
+    ];
+    await tenders.forEach(data => {
+      dataInsert.push(
+        Object.assign({}, data, {
+          client_id: 1,
+          created_at: new Date(),
+          updated_at: new Date()
+        })
+      );
+    });
+    await queryInterface.bulkInsert("tenders", dataInsert);
+
+    dataInsert = [];
+    let works = [
+      {
+        name: "Pilares",
+        general_cost: 200000,
+        budget: 0.5,
+        utility: 0.2,
+        type_id: 2
+      },
+      {
+        name: "Techo",
+        general_cost: 200000,
+        budget: 0.2,
+        utility: 0.2,
+        type_id: 2
+      },
+      {
+        name: "Integración",
+        general_cost: 200000,
+        budget: 0.3,
+        utility: 0.2,
+        type_id: 1
+      }
+    ];
+    await works.forEach(data => {
+      dataInsert.push(
+        Object.assign({}, data, {
+          tender_id: 1,
+          created_at: new Date(),
+          updated_at: new Date()
+        })
+      );
+    });
+    await queryInterface.bulkInsert("works", dataInsert);
 
     return queryInterface.bulkInsert("profiles", dataProfiles, {
       returning: true,
       validate: true
     });
   },
-
   down: async (queryInterface, Sequelize) => {
     await queryInterface.bulkDelete("users", null, {});
     await queryInterface.bulkDelete("roles", null, {});
@@ -578,6 +656,9 @@ module.exports = {
     await queryInterface.bulkDelete("materials", null, {});
     await queryInterface.bulkDelete("machines", null, {});
     await queryInterface.bulkDelete("workers", null, {});
+    await queryInterface.bulkDelete("clients", null, {});
+    await queryInterface.bulkDelete("tenders", null, {});
+    await queryInterface.bulkDelete("works", null, {});
     return queryInterface.bulkDelete("profiles", null, {});
   }
 };

@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Client.associate = function(models) {
     // Un Cliente tiene un solo tipo de Cliente.
-    Client.belongsTo(models.ClientType);
+    Client.belongsTo(models.ClientType, {foreignKey: "type_id"});
 
     // Un Cliente tiene muchas licitaciones
     Client.hasMany(models.Tender);

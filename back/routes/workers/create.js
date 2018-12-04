@@ -23,9 +23,13 @@ async function verifyValues(values) {
 
 function formatRut(rut) {
   if (rut) {
+    finalDigit = rut[rut.length - 1];
+    rut = rut.substring(0, rut.length - 1);
     rut = rut.match(/[0-9]/g);
+    if (!rut) return null;
     rut = rut.join("");
-    if (rut.length != 0) return rut;
+    rut = rut + finalDigit;
+    if (rut.length >= 7) return rut;
     return null;
   }
   return null;

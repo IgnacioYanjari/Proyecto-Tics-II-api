@@ -24,6 +24,14 @@ module.exports = {
         allowNull: true,
         type: Sequelize.FLOAT
       },
+      type_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
+      tender_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

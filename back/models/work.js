@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Work.associate = function(models) {
     // Una obra es de un tipo de obra.
-    Work.belongsTo(models.WorkType);
+    Work.belongsTo(models.WorkType, {foreignKey: "type_id"});
 
     // Una obra es de una licitación.
     Work.belongsTo(models.Tender);
