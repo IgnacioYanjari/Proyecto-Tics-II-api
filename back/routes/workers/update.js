@@ -28,7 +28,9 @@ function formatRut(rut) {
     rut = rut.match(/[0-9]/g);
     if (!rut) return null;
     rut = rut.join("");
+    console.log(`antes ${rut}`);
     rut = rut + finalDigit;
+    console.log(`despues ${rut}`);
     if (rut.length >= 7) return rut;
     return null;
   }
@@ -71,13 +73,15 @@ async function update(model, data, res) {
         rut: data.rut
       }
     });
-    if (worker.id != data.id)
-      res.status(401).send({
-        status: "fail",
-        message: "Rut ya existente"
-      });
+    if (worker) {
+      if (worker.id != data.id)
+        return res.status(401).send({
+          status: "fail",
+          message: "Rut ya existente"
+        });
+    }
   } catch (e) {
-    res.status(500).send({
+    return res.status(500).send({
       status: "fail",
       message: "Error servidor"
     });
