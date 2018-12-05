@@ -77,7 +77,6 @@ async function update(model, data, res) {
         message: "Rut ya existente"
       });
   } catch (e) {
-    console.log(err);
     res.status(500).send({
       status: "fail",
       message: "Error servidor"
