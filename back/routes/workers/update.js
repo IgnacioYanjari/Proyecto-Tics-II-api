@@ -65,16 +65,24 @@ async function update(model, data, res) {
       messages: ["Id es necesario para editar"]
     });
   }
-  let worker = await Worker.findOne({
-    where: {
-      rut: data.rut
-    }
-  });
-  if (worker.id != data.id)
-    res.status(401).send({
-      status: "fail",
-      message: "Rut ya existente"
+  try {
+    let worker = await Worker.findOne({
+      where: {
+        rut: data.rut
+      }
     });
+    if (worker.id != data.id)
+      res.status(401).send({
+        status: "fail",
+        message: "Rut ya existente"
+      });
+  } catch (e) {
+    console.log(err);
+    res.status(500).send({
+      status: "fail",
+      message: "Error servidor"
+    });
+  }
 
   return model
     .findByPk(data.id)
